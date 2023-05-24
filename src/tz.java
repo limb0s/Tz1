@@ -25,6 +25,8 @@ public class tz {
             throw new Exp("строка не является математической операцией");
         }
         String[] d = input.split(regexActions[index]);
+        d[0] = d[0].trim();
+        d[1] = d[1].trim();
         if(d.length < 2){
             throw new Exp("строка не является математической операцией");
         }
