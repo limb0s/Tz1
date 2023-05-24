@@ -25,11 +25,11 @@ public class tz {
             throw new Exp("строка не является математической операцией");
         }
         String[] d = input.split(regexActions[index]);
+        if(d.length < 2){
+            throw new Exp("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
+        }
         d[0] = d[0].trim();
         d[1] = d[1].trim();
-        if(d.length < 2){
-            throw new Exp("строка не является математической операцией");
-        }
         Pattern p = Pattern.compile("[\\p{InCyrillic}\\sa-zA-H[J-U][W-W][Y-Z]!@#$%&()_=|<>?{}.\\[\\]~]");
         Matcher m = p.matcher(d[0]);
         Matcher g = p.matcher(d[1]);
@@ -37,7 +37,7 @@ public class tz {
             throw new Exp("Укажите корректное выражение используя числа от 1 до 10");
         }
         if (Objects.equals(d[0], "")){
-            throw new Exp("Укажите корректное выражение используя числа от 1 до 10");
+            throw new Exp("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
         }
         if (d.length == 2) {
             if (conv.isRoman(d[0]) == conv.isRoman(d[1])) {
