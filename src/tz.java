@@ -7,14 +7,13 @@ public class tz {
     public static void main(String [] args) throws Exp {
         Scanner scan = new Scanner(System.in);
         System.out.print("Введите ваш пример(Каждое из чисел от 1 до 10): ");
-        String num = scan.nextLine();
-        calc(num);
+        String str1 = scan.nextLine();
+        calc(str1);
     }
     public static String calc(String input) throws Exp {
         Conv conv = new Conv();
         String[] actions = {"+", "-", "/", "*"};
-        String[] regexActions = {"\\+", "-", "/", "\\*"};
-        Scanner scan = new Scanner(System.in);
+        String[] regexActions = {"\\+", "\\-", "\\/", "\\*"};
         int index = -1;
         for (int i = 0; i < actions.length; i++) {
             if (input.contains(actions[i])) {
@@ -66,7 +65,7 @@ public class tz {
                             if (isRoman) {
                                 res = a - b;
                                 if (res < 1) {
-                                    throw new Exp("в римской системе нет отрицательных чисел");
+                                    throw new Exp("в римской системе нет нуля и отрицательных чисел");
                                 } else {
                                     System.out.println("Результат: " + conv.intToRoman(res));
                                     break;
